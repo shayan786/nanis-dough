@@ -6,7 +6,9 @@
 var express = require('express'),
     cfenv = require('cfenv'),
     path = require('path'),
-    nunjucks = require('nunjucks');
+    nunjucks = require('nunjucks'),
+    serveStatic = require('serve-static'),
+    serveFavicon = require('serve-favicon');
 
 //////////////////////////////
 // App Variables
@@ -20,6 +22,8 @@ nunjucks.configure('src/views', {
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(serveFavicon(__dirname + '/public/images/favicon.ico'));
 
 app.get('/', function (req, res) {
   res.render('index.html', {title: "Nani's Dough"});

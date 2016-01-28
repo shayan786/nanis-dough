@@ -51,6 +51,9 @@ browserSync = browserSync.create();
 gulp.task('uglify', function () {
   gulp.src(dirs.js.uglify)
     .pipe(gulpif(!isCI, sourcemaps.init()))
+      .pipe(babel({
+        presets: ['es2015']
+      }))
       .pipe(uglify({
         'mangle': isCI ? true : false
       }))
