@@ -5,7 +5,7 @@
 header {
 	background: $nani_red;
 	height: 100vh;
-	width: 125px;
+	width: 135px;
 	display: flex;
 	flex-flow: column wrap;
 	justify-content: space-between;
@@ -15,7 +15,7 @@ header {
 		margin: 5px auto;
 	}
 
-	nav {
+	.nav__main {
 		ul {
 			margin-bottom: 1.4em;
 
@@ -35,7 +35,7 @@ header {
 					  bottom: 0;
 					  left: 10%;
 					  background-color: $neutral_white;
-					  //visibility: hidden;
+					  visibility: hidden;
 					  transform: scaleX(0);
 					  transition: all 0.3s ease-in-out 0s;
 					}
@@ -49,5 +49,36 @@ header {
 				}
 			}
 		}
+	}
+
+	.nav__social {
+
+	}
+}
+
+.icons {
+	&__fb {
+		width: 20%;
+		background: #3B5998;
+		border-radius: 50%;
+		padding: 10px;
+		margin-top: 0px;
+
+		&:hover {
+			transition: transform 0.5s ease-in-out;
+			transform: scale(1.2);
+		}
+	}
+
+	&__i {
+		@extend .icons__fb;
+		background: #125688;
+		margin-top: 10px;
+	}
+
+	&__t {
+		@extend .icons__fb;
+		background: #00aced;
+		margin-top: 10px;
 	}
 }
