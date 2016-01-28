@@ -13,7 +13,9 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     cfenv = require('cfenv'),
     gulpif = require('gulp-if'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    babel = require('gulp-babel');
+    
 
 //////////////////////////////
 // Variables

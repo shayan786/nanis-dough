@@ -1,0 +1,53 @@
+@import 'mixins';
+@import 'primitives';
+@import 'variables';
+
+header {
+	background: $nani_red;
+	height: 100vh;
+	width: 125px;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-between;
+
+	.logo {
+		width: 90%;
+		margin: 5px auto;
+	}
+
+	nav {
+		ul {
+			margin-bottom: 1.4em;
+
+			li {
+				a {
+					display: block;
+					padding: 10px 0px;
+					text-decoration: none;
+					color: $neutral_white;
+					position: relative;
+
+					&:before {
+						content: "";
+					  position: absolute;
+					  width: 80%;
+					  height: 2px;
+					  bottom: 0;
+					  left: 10%;
+					  background-color: $neutral_white;
+					  //visibility: hidden;
+					  transform: scaleX(0);
+					  transition: all 0.3s ease-in-out 0s;
+					}
+
+					&:hover {
+						&:before {
+							visibility: visible;
+  						transform: scaleX(1);
+						}
+					}
+				}
+			}
+		}
+	}
+}
