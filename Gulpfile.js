@@ -14,7 +14,8 @@ var gulp = require('gulp'),
     cfenv = require('cfenv'),
     gulpif = require('gulp-if'),
     browserSync = require('browser-sync'),
-    babel = require('gulp-babel');
+    babel = require('gulp-babel'),
+    symlink = require('gulp-symlink');
     
 
 //////////////////////////////
@@ -111,6 +112,20 @@ gulp.task('images:watch', function () {
   gulp.watch(dirs.images, ['images']);
 });
 
+
+//////////////////////////////
+// Video Tasks
+//////////////////////////////
+gulp.task('videos', function () {
+  gulp.src('videos/nanis_dough_v1.mp4')
+    .pipe(symlink(dirs.public + '/videos'))
+});
+
+gulp.task('videos:watch', function () {
+  gulp.watch(dirs.videos, ['videos']);
+});
+
+
 //////////////////////////////
 // Nodemon Task
 //////////////////////////////
@@ -150,10 +165,10 @@ gulp.task('browser-sync', ['nodemon'], function () {
 //////////////////////////////
 // Running Tasks
 //////////////////////////////
-gulp.task('build', ['uglify', 'sass', 'images']);
+gulp.task('build', ['uglify', 'sass', 'images', 'videos']);
 
 gulp.task('test', ['build']);
 
-gulp.task('watch', ['uglify:watch', 'sass:watch', 'images:watch']);
+gulp.task('watch', ['uglify:watch', 'sass:watch', 'images:watch', 'videos:watch']);
 
 gulp.task('default', ['browser-sync', 'build', 'watch']);
