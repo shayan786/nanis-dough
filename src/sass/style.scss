@@ -7,7 +7,67 @@
 @import 'header';
 
 main {
-	.video {
-		float: right;
+}
+
+.video {
+	float: right;
+	transform: translateX(-20%);
+
+	video {
+		width: 120%;
 	}
+}
+
+.doughnuts {
+	width: 92%;
+	float: right;
+	clear: right;
+	padding-top: 2em;
+	padding-bottom: 2em;
+
+	&__list {
+		padding-top: 2em;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+	}
+
+	&__doughnut {
+		width: 30%;
+
+		img {
+			width: 70%;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+
+		&_title {
+			font-weight: 700;
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+			background-color: rgba(0,0,0,0.15);
+			width: 70%;
+			margin-left: 15%;
+			margin-top: -3px;
+		}
+
+		&_description {
+			padding-top: 1em;
+			padding-bottom: 1em;
+			width: 70%;
+			margin-left: 15%;
+			margin-top: -3px;
+			background-color: rgba(0,0,0,0.08);
+		}
+	}
+}
+
+.contact {
+	@extend .doughnuts;
+
+	background: $neutral_white;
+}
+
+.about {
+	@extend .doughnuts;
 }

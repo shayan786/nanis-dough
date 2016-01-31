@@ -15,7 +15,7 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     browserSync = require('browser-sync'),
     babel = require('gulp-babel'),
-    symlink = require('gulp-symlink');
+    vfs = require('vinyl-fs');
     
 
 //////////////////////////////
@@ -37,6 +37,7 @@ var dirs = {
     'types': 'js html'
   },
   'sass': 'src/sass/**/*.scss',
+  'videos': 'src/videos/*.*',
   'images': 'src/images/**/*.*',
   'public': 'public/'
 };
@@ -117,8 +118,8 @@ gulp.task('images:watch', function () {
 // Video Tasks
 //////////////////////////////
 gulp.task('videos', function () {
-  gulp.src('videos/nanis_dough_v1.mp4')
-    .pipe(symlink(dirs.public + '/videos'))
+  return vfs.src(dirs.videos, {followSymlinks: false})
+  .pipe(vfs.symlink(dirs.public + '/videos'))
 });
 
 gulp.task('videos:watch', function () {
