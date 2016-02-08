@@ -37,6 +37,7 @@ var dirs = {
     'types': 'js html'
   },
   'sass': 'src/sass/**/*.scss',
+  'vendor': 'src/vendor/**/*.*',
   'videos': 'src/videos/*.*',
   'images': 'src/images/**/*.*',
   'public': 'public/'
@@ -69,6 +70,15 @@ gulp.task('uglify', function () {
 gulp.task('uglify:watch', function () {
   gulp.watch(dirs.js.uglify, ['uglify']);
 });
+
+//////////////////////////////
+// Vendor Tasks
+//////////////////////////////
+gulp.task('vendor', function () {
+  gulp.src(dirs.vendor)
+    .pipe(gulp.dest(dirs.public + 'vendor'));
+});
+
 
 //////////////////////////////
 // Sass Tasks
@@ -166,7 +176,7 @@ gulp.task('browser-sync', ['nodemon'], function () {
 //////////////////////////////
 // Running Tasks
 //////////////////////////////
-gulp.task('build', ['uglify', 'sass', 'images', 'videos']);
+gulp.task('build', ['uglify', 'sass', 'images', 'videos', 'vendor']);
 
 gulp.task('test', ['build']);
 
