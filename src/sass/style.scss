@@ -32,40 +32,20 @@ main {
 		padding-bottom: 1em;
 	}
 
-	&__list {
-		padding-top: 2em;
+	#instafeed {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-around;
-	}
-
-	&__doughnut {
-		width: 30%;
+		align-items: center;
 
 		img {
-			width: 70%;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
-		}
+			margin-bottom: 1em;
+			margin-top: 1em;
 
-		&_title {
-			font-weight: 700;
-			padding-top: 0.5em;
-			padding-bottom: 0.5em;
-			background-color: rgba(0,0,0,0.15);
-			width: 70%;
-			margin-left: 15%;
-			margin-top: -3px;
-		}
-
-		&_description {
-			padding-top: 1em;
-			padding-bottom: 1em;
-			width: 70%;
-			margin-left: 15%;
-			margin-top: -3px;
-			background-color: rgba(0,0,0,0.08);
-			line-height: 1.2em;
+			&:hover {
+				transition: all 0.3s ease-in-out;
+				transform: scale(1.2);
+			}
 		}
 	}
 }
