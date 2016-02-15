@@ -6,6 +6,7 @@
     getInstagramImages();
     rotateImages();
     handleLocation();
+    contactFormValidation();
   });
 
 }());
@@ -144,4 +145,20 @@ function rotateImages() {
 		}
 	}, 7000)
 
+}
+
+function contactFormValidation(){
+	var form = document.getElementById('contact_form'); // form has to have ID: <form id="formID">
+	form.noValidate = true;
+	form.addEventListener('submit', function(event) { // listen for form submitting
+	        if (!event.target.checkValidity()) {
+	            event.preventDefault(); // dismiss the default functionality
+	            swal({   
+	            	title: 'Error!',   
+	            	text: 'Form is incomplete',   
+	            	type: 'error',
+	            	confirmButtonText: 'Ok' 
+	            });
+	        }
+	    }, false);
 }
