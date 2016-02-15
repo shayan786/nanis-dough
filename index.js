@@ -29,6 +29,18 @@ app.get('/', function (req, res) {
   res.render('index.html', {title: "Nani's Dough"});
 });
 
+app.get('/contact', function (req, res) {
+  res.render('index.html', {title: "Nani's Dough - Contact"})
+})
+
+app.get('/doughnuts', function (req, res) {
+  res.render('index.html', {title: "Nani's Dough - Doughnuts"})
+})
+
+app.get('/about', function (req, res) {
+  res.render('index.html', {title: "Nani's Dough - About"})
+})
+
 
 //////////////////////////////
 // Start the server
