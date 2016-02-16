@@ -108,7 +108,7 @@ gulp.task('sass:watch', function () {
 // Image Tasks
 //////////////////////////////
 gulp.task('images', function () {
-  gulp.src(dirs.images)
+  return gulp.src(dirs.images)
     .pipe(imagemin({
       'progressive': true,
       'svgoPlugins': [

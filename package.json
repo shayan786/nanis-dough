@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "clean": "rm -rf public/",
     "start:production": "node index.js ENV='production' PORT=80",
     "test": "npm run gulp test",
     "install:bower": "npm run bower install",
