@@ -148,17 +148,25 @@ function rotateImages() {
 }
 
 function contactFormValidation(){
-	var form = document.getElementById('contact_form'); // form has to have ID: <form id="formID">
-	form.noValidate = true;
-	form.addEventListener('submit', function(event) { // listen for form submitting
-	        if (!event.target.checkValidity()) {
-	            event.preventDefault(); // dismiss the default functionality
-	            swal({   
-	            	title: 'Error!',   
-	            	text: 'Form is incomplete',   
-	            	type: 'error',
-	            	confirmButtonText: 'Ok' 
-	            });
-	        }
-	    }, false);
+	var $form = $('#contact_form');
+	$form.on('submit', function(e) { // listen for form submitting
+		e.preventDefault();
+    if (!e.target.checkValidity()) {
+        swal({   
+        	title: 'Error!',   
+        	text: 'Form is incomplete',   
+        	type: 'error',
+        	confirmButtonText: 'Ok' 
+        });
+    }
+    else {
+    	$.ajax({
+    		method: 'POST',
+    		url: '/contact',
+    		data: $form.serialize()
+    	}).done(function() {
+    		console.log('done');
+    	})
+    }
+  });
 }

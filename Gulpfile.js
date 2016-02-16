@@ -11,7 +11,6 @@ var gulp = require('gulp'),
     importOnce = require('node-sass-import-once'),
     autoprefixer = require('gulp-autoprefixer'),
     imagemin = require('gulp-imagemin'),
-    cfenv = require('cfenv'),
     gulpif = require('gulp-if'),
     browserSync = require('browser-sync'),
     babel = require('gulp-babel'),
@@ -166,10 +165,10 @@ gulp.task('nodemon', function (cb) {
 // Browser Sync Task
 //////////////////////////////
 gulp.task('browser-sync', ['nodemon'], function () {
-  var appEnv = cfenv.getAppEnv();
+  const url = 'http://localhost:3333';
 
   browserSync.init({
-    'proxy': appEnv.url
+    'proxy': url
   });
 });
 
