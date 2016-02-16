@@ -14,8 +14,8 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     browserSync = require('browser-sync'),
     babel = require('gulp-babel'),
-    vfs = require('vinyl-fs');
-    
+    vfs = require('vinyl-fs'),
+    pngquant = require('imagemin-pngquant');
 
 //////////////////////////////
 // Variables
@@ -112,8 +112,10 @@ gulp.task('images', function () {
     .pipe(imagemin({
       'progressive': true,
       'svgoPlugins': [
-        { 'removeViewBox': false }
-      ]
+        {removeViewBox: false},
+        {cleanupIDs: false}
+      ],
+      use: [pngquant()]
     }))
     .pipe(gulp.dest(dirs.public + '/images'));
 });
