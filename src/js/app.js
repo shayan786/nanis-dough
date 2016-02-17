@@ -7,6 +7,7 @@
     rotateImages();
     handleLocation();
     contactFormValidation();
+    videoSizing();
   });
 
 }());
@@ -145,6 +146,15 @@ function rotateImages() {
 		}
 	}, 7000)
 
+}
+
+function videoSizing() {
+	$(document).ready(function () {
+		$('.video').height($('.video video').height()+90);
+		$(window).on('resize', function () {
+			$('.video').height($('.video video').height());
+		})
+	})
 }
 
 function contactFormValidation(){
