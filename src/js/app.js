@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  window.addEventListener('DOMContentLoaded', function () {
-    toggleMenu();
+  $(document).ready(function () {
+  	toggleMenu();
     getInstagramImages();
     rotateImages();
     handleLocation();
     contactFormValidation();
     videoSizing();
-  });
+  })
 
 }());
 
