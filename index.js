@@ -22,6 +22,7 @@ nunjucks.configure('src/views', {
 });
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/videos'));
 
 app.use(serveFavicon(__dirname + '/public/images/favicon.ico'));
 
