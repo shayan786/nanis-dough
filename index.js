@@ -21,7 +21,7 @@ nunjucks.configure('src/views', {
   express: app
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 
 app.use(serveFavicon(__dirname + '/public/images/favicon.ico'));
 
@@ -38,7 +38,7 @@ app.get('/contact', function (req, res) {
 
 app.post('/contact', function (req, res) {
   var payload   = {
-    to      : 'shayandhanani@gmail.com',
+    to      : 'n.edry11@gmail.com',
     from    : req.body.from_email,
     subject : '[NanisDough] Contact Form',
     text    : req.body.from_body
