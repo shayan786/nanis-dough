@@ -132,7 +132,7 @@ gulp.task('images:watch', function () {
 //////////////////////////////
 gulp.task('videos', function () {
   return vfs.src(dirs.videos, {followSymlinks: false})
-  .pipe(vfs.symlink(dirs.public + '/videos'))
+  .pipe(vfs.symlink(dirs.public + 'videos'))
 });
 
 gulp.task('videos:watch', function () {
@@ -172,7 +172,7 @@ gulp.task('browser-sync', ['nodemon'], function () {
   const url = "http://localhost:" + (process.env.PORT || 3000);
 
   browserSync.init({
-    'proxy': appEnv.url
+    'proxy': url
   });
 });
 
