@@ -1,7 +1,7 @@
 applications:
-  - disk_quota: 1024M
-    host: node-starter
-    name: Node Starter
+  - disk_quota: 512M
+    host: nanis-dough
+    name: Nani's Dough
     path: .
     domain: mybluemix.net
     instances: 1

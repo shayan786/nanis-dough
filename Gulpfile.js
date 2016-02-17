@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     babel = require('gulp-babel'),
     vfs = require('vinyl-fs'),
-    pngquant = require('imagemin-pngquant');
+    pngquant = require('imagemin-pngquant'),
+    cfenv = require('cfenv');
 
 //////////////////////////////
 // Variables
@@ -119,7 +120,7 @@ gulp.task('images', function (cb) {
     }))
     .pipe(gulp.dest(dirs.public + '/images'));
 
-    cb(err);
+    if(err){console.log(err)}
 });
 
 gulp.task('images:watch', function () {
@@ -169,10 +170,10 @@ gulp.task('nodemon', function (cb) {
 // Browser Sync Task
 //////////////////////////////
 gulp.task('browser-sync', ['nodemon'], function () {
-  const url = 'http://localhost:3333';
+  var appEnv = cfenv.getAppEnv();
 
   browserSync.init({
-    'proxy': url
+    'proxy': appEnv.url
   });
 });
 
