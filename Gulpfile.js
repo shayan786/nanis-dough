@@ -107,7 +107,7 @@ gulp.task('sass:watch', function () {
 //////////////////////////////
 // Image Tasks
 //////////////////////////////
-gulp.task('images', function () {
+gulp.task('images', function (cb) {
   return gulp.src(dirs.images)
     .pipe(imagemin({
       'progressive': true,
@@ -118,6 +118,8 @@ gulp.task('images', function () {
       use: [pngquant()]
     }))
     .pipe(gulp.dest(dirs.public + '/images'));
+
+    cb(err);
 });
 
 gulp.task('images:watch', function () {
