@@ -1,0 +1,1 @@
+{"version":3,"sources":["variables.scss"],"names":[],"mappings":"AACA,uEAAY","file":"variables.css","sourcesContent":["/* Fonts */\n@import url(https://fonts.googleapis.com/css?family=Cabin:400,500,700);\n\n/* Colors */\n$light_blue: #0E4EAD;\n$dark_blue: #0C0F66;\n$neutral_white: #F2F2F2;\n$text_gray: #323232;\n\n$nani_red: #d05077;\n"],"sourceRoot":"/source/"}
