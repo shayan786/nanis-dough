@@ -15,8 +15,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     babel = require('gulp-babel'),
     vfs = require('vinyl-fs'),
-    pngquant = require('imagemin-pngquant'),
-    cfenv = require('cfenv');
+    pngquant = require('imagemin-pngquant');
 
 //////////////////////////////
 // Variables
@@ -170,7 +169,7 @@ gulp.task('nodemon', function (cb) {
 // Browser Sync Task
 //////////////////////////////
 gulp.task('browser-sync', ['nodemon'], function () {
-  var appEnv = cfenv.getAppEnv();
+  const url = "http://localhost:" + (process.env.PORT || 3000);
 
   browserSync.init({
     'proxy': appEnv.url

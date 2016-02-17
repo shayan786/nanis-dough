@@ -9,14 +9,12 @@ var express = require('express'),
     serveStatic = require('serve-static'),
     serveFavicon = require('serve-favicon'),
     sendgrid = require('sendgrid')('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'),
-    bodyParser = require('body-parser'),
-    cfenv = require('cfenv');
+    bodyParser = require('body-parser');
 
 //////////////////////////////
 // App Variables
 //////////////////////////////
-var app = express(),
-    appEnv = cfenv.getAppEnv(); 
+var app = express();
 
 nunjucks.configure('src/views', {
   autoescape: true,
@@ -65,6 +63,13 @@ app.get('/about', function (req, res) {
 //////////////////////////////
 // Start the server
 //////////////////////////////
-app.listen(appEnv.port, function () {
-  console.log('Server starting on ' + appEnv.url);
+if (process.env.NODE_ENV === 'production') {
+  var port = 80;
+}
+else {
+  var port = 3000;
+}
+
+app.listen(port, function () {
+  console.log('Server starting on ' + port);
 });
