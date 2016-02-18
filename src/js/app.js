@@ -65,9 +65,7 @@ String.prototype.capitalize = function() {
 function toggleMenu() {
 	$('.nav__main a').click(function(e) {
 		e.preventDefault();
-
 		const fade_in_section = '.'+this.innerText.toLowerCase();
-
 		$('html, body').animate({
 			scrollTop: $(fade_in_section).offset().top
 		}, 300);
@@ -81,6 +79,9 @@ function toggleMenu() {
 
 			$(fade_in_section).fadeIn("slow", function () {
 				$(this).addClass('active');
+				$('html, body').animate({
+					scrollTop: $(fade_in_section).offset().top
+				}, 300);
 			});
 		}
 
