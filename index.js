@@ -37,18 +37,18 @@ app.get('/contact', function (req, res) {
 })
 
 app.post('/contact', function (req, res) {
-  var payload   = {
-    to      : 'n.edry11@gmail.com',
-    from    : req.body.from_email,
-    subject : '[NanisDough] Contact Form',
-    text    : req.body.from_body
-  };
+  var email = new sendgrid.Email({
+    to: ['n.edry11@gmail.com', 'order@nanisdough.com'],
+    from: req.body.from_email,
+    subject: '[NanisDough] Contact Form',
+    text: req.body.from_body
+  });
 
-  sendgrid.send(payload, function(err, json) {
-    if (err) { console.error(err); }
+  sendgrid.send(email, function (err, json) {
+    if (err) { return console.error(err); }
     console.log(json);
     res.sendStatus(200);
-  });
+  })
 })
 
 app.get('/doughnuts', function (req, res) {
