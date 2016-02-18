@@ -163,12 +163,12 @@ function contactFormValidation(){
 	$form.on('submit', function(e) { // listen for form submitting
 		e.preventDefault();
     if (!e.target.checkValidity()) {
-        swal({   
-        	title: 'Error!',   
-        	text: 'Form is incomplete',   
-        	type: 'error',
-        	confirmButtonText: 'Ok' 
-        });
+      swal({   
+      	title: 'Error!',   
+      	text: 'Form is incomplete',   
+      	type: 'error',
+      	confirmButtonText: 'Ok' 
+      });
     }
     else {
     	$.ajax({
@@ -176,7 +176,13 @@ function contactFormValidation(){
     		url: '/contact',
     		data: $form.serialize()
     	}).done(function() {
-    		console.log('done');
+    		swal(
+		      'Email Sent!',
+		      "I'll get back to you as soon as i can!",
+		      'success'
+		    );
+    		$form.find('input[type=text]').val('');
+    		$form.find('textarea').val('');
     	})
     }
   });
