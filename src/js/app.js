@@ -98,7 +98,9 @@ function getInstagramImages() {
 									resolution: 'low_resolution',
 									template: '<div class="doughnut"><a href="{{link}}"" target="_blank"><img src="{{image}}"/></a></div>',
 									after: function () {
-										masonryInit();
+										setTimeout(function () {
+											masonryInit();
+										}, 1000)
 									}
 	})
 
