@@ -38,7 +38,7 @@ app.get('/contact', function (req, res) {
 
 app.post('/contact', function (req, res) {
   var email = new sendgrid.Email({
-    to: ['n.edry11@gmail.com', 'order@nanisdough.com'],
+    to: ['order@nanisdough.com'],
     from: req.body.from_email,
     subject: '[NanisDough] Contact Form',
     text: req.body.from_body
