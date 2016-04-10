@@ -59,6 +59,10 @@ app.get('/about', function (req, res) {
   res.render('index.html', {title: "Nani's Dough - About"})
 })
 
+app.get('/location', function (req, res) {
+  res.render('index.html', {title: "Nani's Dough - Location"})
+})
+
 
 //////////////////////////////
 // Start the server

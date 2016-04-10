@@ -24,6 +24,7 @@ function handleLocation() {
 		case "/doughnuts":
 			$('.contact').fadeOut();
 			$('.about').fadeOut();
+      $('.location').fadeOut();
 
 			$('.doughnuts').fadeIn("slow", function () {
 				$(this).addClass('active');
@@ -35,6 +36,7 @@ function handleLocation() {
 		case "/contact":
 			$('.doughnuts').fadeOut();
 			$('.about').fadeOut();
+      $('.location').fadeOut();
 
 			$('.contact').fadeIn("slow", function () {
 				$(this).addClass('active');
@@ -43,10 +45,23 @@ function handleLocation() {
 				}, 300);
 			});
 			break;
+    case "/location":
+      $('.doughnuts').fadeOut();
+      $('.about').fadeOut();
+      $('.contact').fadeOut();
+
+      $('.location').fadeIn("slow", function () {
+        $(this).addClass('active');
+        $('html, body').animate({
+          scrollTop: $(this).offset().top
+        }, 300);
+      });
+      break;
 
 		default: 
 			$('.contact').fadeOut();
 			$('.doughnuts').fadeOut();
+      $('.location').fadeOut();
 
 			$('.about').fadeIn("slow", function () {
 				$(this).addClass('active');
@@ -74,6 +89,7 @@ function toggleMenu() {
 			$('.doughnuts').fadeOut();
 			$('.contact').fadeOut();
 			$('.about').fadeOut();
+      $('.location').fadeOut();
 
 			$('.nav__main a').removeClass('active');
 

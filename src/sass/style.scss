@@ -173,3 +173,21 @@ main {
 
 	display: none;
 }
+
+.location {
+	@extend .doughnuts;
+	
+	img {
+		width: 80%;
+
+		& ~ p {
+			margin: 1em auto;
+			width: 60%;
+			font-size: 1.2em;
+		}
+	}
+
+	b {
+		font-weight: 700;
+	}
+}
