@@ -9,7 +9,6 @@
     handleLocation();
     contactFormValidation();
     videoSizing();
-    googleAnalytics();
   })
 
 }());

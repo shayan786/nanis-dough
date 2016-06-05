@@ -15,6 +15,7 @@ var express = require('express'),
 // App Variables
 //////////////////////////////
 var app = express();
+var isProd = process.env.NODE_ENV === 'production';
 
 nunjucks.configure('src/views', {
   autoescape: true,
@@ -29,11 +30,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
-  res.render('index.html', {title: "Nani's Dough"});
+  res.render('index.html', {title: "Nani's Dough", isProd: isProd});
 });
 
 app.get('/contact', function (req, res) {
-  res.render('index.html', {title: "Nani's Dough - Contact"})
+  res.render('index.html', {title: "Nani's Dough - Contact", isProd: isProd})
 })
 
 app.post('/contact', function (req, res) {
@@ -52,27 +53,22 @@ app.post('/contact', function (req, res) {
 })
 
 app.get('/doughnuts', function (req, res) {
-  res.render('index.html', {title: "Nani's Dough - Doughnuts"})
+  res.render('index.html', {title: "Nani's Dough - Doughnuts", isProd: isProd})
 })
 
 app.get('/about', function (req, res) {
-  res.render('index.html', {title: "Nani's Dough - About"})
+  res.render('index.html', {title: "Nani's Dough - About", isProd: isProd})
 })
 
 app.get('/location', function (req, res) {
-  res.render('index.html', {title: "Nani's Dough - Location"})
+  res.render('index.html', {title: "Nani's Dough - Location", isProd: isProd})
 })
 
 
 //////////////////////////////
 // Start the server
 //////////////////////////////
-if (process.env.NODE_ENV === 'production') {
-  var port = 80;
-}
-else {
-  var port = 3000;
-}
+var port = isProd ? 80 : 3000;
 
 app.listen(port, function () {
   console.log('Server starting on ' + port);
