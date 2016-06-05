@@ -41,12 +41,13 @@ header {
 	}
 
 	.nav__main {
-		ul {
+		&_desktop {
 			margin-bottom: 1.4em;
 
 			@include respondTo(smartphone) {
 				margin-bottom: 0;
 				transform: translateX(-70px);
+				display: none;
 			}
 
 			li {
@@ -56,11 +57,6 @@ header {
 					text-decoration: none;
 					color: $neutral_white;
 					position: relative;
-
-					@include respondTo(smartphone) {
-						display: inline-block;
-						padding: 0 0 5px 0;
-					}
 
 					@include respondTo(desktop) {
 						&:before {
@@ -90,19 +86,56 @@ header {
 				}
 			}
 		}
+
+		&_breadcrumbs {
+			display: none;
+			width: 25px;
+			height: 30px;
+			margin-right: 20px;
+
+			@include respondTo(smartphone) {
+				display: block;
+			}
+
+			.line {
+				width: 100%;
+				border: 1px solid #FFF;
+				margin: 8px 0;
+				border-radius: 5px;
+			}
+		}
 	}
 
 	.nav__social {
 		ul {
-			@include respondTo(smartphone) {
-				transform: translateX(-30px);
-			}
-
 			li {
 				@include respondTo(smartphone) {
 					display: inline;
 				}
 			}
+		}
+	}
+}
+
+.nav__main_mobile {
+	display: none;
+	width: 100%;
+	background: rgba(0,0,0,0.75);
+	text-align: center;
+
+	li {
+		border-bottom: 1px solid rgba(255,255,255,0.4);
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		a {
+			display: block;
+			padding: 12px 0px;
+			text-decoration: none;
+			color: $neutral_white;
+			position: relative;
 		}
 	}
 }
@@ -123,7 +156,7 @@ header {
 		}
 
 		@include respondTo(smartphone) {
-			width: 6%;
+			width: 7%;
 		}
 	}
 

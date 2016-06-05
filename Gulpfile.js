@@ -144,6 +144,8 @@ gulp.task('videos:watch', function () {
 // Nodemon Task
 //////////////////////////////
 gulp.task('nodemon', function (cb) {
+  var started = false;
+
   nodemon({
     'script': dirs.server.main,
     'watch': dirs.server.watch,
@@ -153,7 +155,10 @@ gulp.task('nodemon', function (cb) {
     }
   })
   .once('start', function () {
-    cb();
+    if (!started) {
+      cb();
+      started = true;
+    }
   })
   .on('start', function () {
     setTimeout(function () {
@@ -169,10 +174,11 @@ gulp.task('nodemon', function (cb) {
 // Browser Sync Task
 //////////////////////////////
 gulp.task('browser-sync', ['nodemon'], function () {
-  const url = "http://localhost:" + (process.env.PORT || 3000);
+  const url = "localhost:3000";
 
   browserSync.init({
-    'proxy': url
+    proxy: url,
+    port: 3001
   });
 });
 

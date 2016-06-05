@@ -79,7 +79,8 @@ String.prototype.capitalize = function() {
 }
 
 function toggleMenu() {
-	$('.nav__main a').click(function(e) {
+  // Desktop
+	$('.nav__main_desktop a, .nav__main_mobile a').click(function(e) {
 		e.preventDefault();
 		const fade_in_section = '.'+this.innerText.toLowerCase();
 		$('html, body').animate({
@@ -105,6 +106,12 @@ function toggleMenu() {
 		//update app history url
 		setAppState(this.innerText.toLowerCase());
 	})
+
+  // Mobile
+  // Handle Breadcrumb toggle
+  $('.nav__main_breadcrumbs').click(function (e) {
+    $('.nav__main_mobile').slideToggle();
+  })
 }
 
 function getInstagramImages() {
